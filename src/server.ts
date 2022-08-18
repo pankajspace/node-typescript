@@ -16,13 +16,14 @@ const server: Server = http.createServer(
 
     if (URL == "/user" && METHOD == "POST") {
       try {
-        let output = "";
+        let output: any = "";
         req
           .on("data", (chunk) => {
             output += chunk;
           })
           .on("end", () => {
-            res.end(`<pre>${output}</pre>`);
+            const formData = JSON.parse(output);
+            res.end(`<pre>${formData.name}</pre>`);
           });
       } catch (error) {
         console.error(error);
