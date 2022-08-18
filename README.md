@@ -8,4 +8,4 @@ npx tsc --init
 npm i @types/node --save
 
 in .tsconfig.json file make
-  "target": "es2017",
+"target": "es2017",
