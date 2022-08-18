@@ -1,11 +1,12 @@
-install nodejs
-install postman
+### Steps to follow
 
-npm i ts-node --save
-npm i nodemon --save
-npm i typescript --save
-npx tsc --init
-npm i @types/node --save
+- install nodejs
+- install postman
 
-in .tsconfig.json file make
-"target": "es2017",
+- npm i ts-node --save
+- npm i nodemon --save
+- npm i typescript --save
+- npx tsc --init
+- npm i @types/node --save
+
+- in .tsconfig.json file make "target": "es2017"
