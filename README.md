@@ -10,3 +10,6 @@
 - npm i @types/node --save
 
 - in .tsconfig.json file make "target": "es2017"
+
+- npm i express --save
+- npm i @types/express --save
