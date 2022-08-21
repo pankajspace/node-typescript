@@ -2,6 +2,13 @@ import express from "express";
 
 const expressUserRouter: express.Router = express.Router();
 
+/**
+ * @usage : To create the user
+ * @url : http://127.0.0.1/user/add
+ * @method : post
+ * @fields : name
+ * @acess : public
+ */
 expressUserRouter.post(
   "/add",
   (
