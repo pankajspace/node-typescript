@@ -15,3 +15,4 @@
 - npm i @types/express --save
 
 - npm i bcryptjs @types/bcryptjs
+- npm i express-validator @types/express-validator
