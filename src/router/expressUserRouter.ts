@@ -1,4 +1,5 @@
 import express from "express";
+import bcrypt from "bcryptjs";
 
 const expressUserRouter: express.Router = express.Router();
 
@@ -11,15 +12,20 @@ const expressUserRouter: express.Router = express.Router();
  */
 expressUserRouter.post(
   "/add",
-  (
+  async (
     request: express.Request,
     response: express.Response,
     next: express.NextFunction
   ) => {
     try {
-      response.status(200).send(request.body);
+      const { name, pass } = request.body;
+      const salt = await bcrypt.genSalt(10);
+      const hashedPass = await bcrypt.hash(pass, salt);
+      response.status(200).send({ name, hashedPass });
     } catch (error) {
-      response.status(400).send("Error occured, please try again.");
+      response
+        .status(400)
+        .send(`<h1 style="color:red">Error occured, please try again.</h1>`);
       next(error);
     }
   }
