@@ -13,3 +13,5 @@
 
 - npm i express --save
 - npm i @types/express --save
+
+- npm i bcryptjs @types/bcryptjs
