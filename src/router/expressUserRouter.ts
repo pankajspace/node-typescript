@@ -1,5 +1,5 @@
 import express from "express";
-import bcrypt from "bcryptjs";
+import { body, validationResult } from "express-validator";
 
 const expressUserRouter: express.Router = express.Router();
 
@@ -7,21 +7,27 @@ const expressUserRouter: express.Router = express.Router();
  * @usage : To create the user
  * @url : http://127.0.0.1/user/add
  * @method : post
- * @fields : name
+ * @fields : name, email
  * @acess : public
  */
 expressUserRouter.post(
   "/add",
-  async (
+  [
+    body("name").not().isEmpty().withMessage("Please enter name"),
+    body("email").isEmail().withMessage("Please enter valid email address"),
+  ],
+  (
     request: express.Request,
     response: express.Response,
     next: express.NextFunction
   ) => {
     try {
-      const { name, pass } = request.body;
-      const salt = await bcrypt.genSalt(10);
-      const hashedPass = await bcrypt.hash(pass, salt);
-      response.status(200).send({ name, hashedPass });
+      const errors = validationResult(request);
+      if (!errors.isEmpty()) {
+        return response.status(400).json(errors);
+      }
+      const { name, email } = request.body;
+      response.status(200).send({ name, email });
     } catch (error) {
       response
         .status(400)
