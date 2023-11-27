@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pankajspace/mern-tyscript.git"
+    "url": "git+https://github.com/pankajspace/node-tyscript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pankajspace/mern-tyscript/issues"
+    "url": "https://github.com/pankajspace/node-tyscript/issues"
   },
-  "homepage": "https://github.com/pankajspace/mern-tyscript#readme",
+  "homepage": "https://github.com/pankajspace/node-tyscript#readme",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.13",
